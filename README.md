@@ -29,85 +29,35 @@ Struktur Folder dan Alur Program
 
 Project ini disusun dengan pola struktur yang umum digunakan pada aplikasi Flask:
 
-app.py
-File utama untuk menjalankan aplikasi. Di sini blueprint dari setiap route didaftarkan.
-
-routes/
-Berisi file-file Python untuk setiap halaman:
-
-home.py untuk halaman beranda
-
-race.py untuk data balapan
-
-lap.py untuk analisis lap
-
-telemetry.py untuk telemetry
-
-compare.py untuk perbandingan pembalap
-
-services/
-Berisi fungsi helper, terutama untuk memuat data FastF1. File fastf1_loader.py menangani semua proses pemanggilan API FastF1, memuat session, laps, dan telemetry.
-
-templates/
-Folder tempat semua halaman HTML berada. Menggunakan Jinja2 untuk template engine.
-
-static/
-Folder berisi file CSS, JavaScript, dan gambar.
+1. app.py
+2. routes/
+3. services/
+4. templates/
+5. static/
 
 Struktur ini bertujuan agar project mudah di-maintain dan scalable jika ingin dikembangkan lebih jauh.
 
 Dependensi yang Digunakan
-
-Project ini menggunakan beberapa library utama:
-
-Flask: untuk membangun aplikasi web
-
-FastF1: untuk mengambil data Formula 1
-
-Pandas: untuk manipulasi data
-
-Matplotlib: untuk membuat grafik statis
-
-NumPy: mendukung perhitungan numerik
+- Project ini menggunakan beberapa library utama:
+- Flask: untuk membangun aplikasi web
+- FastF1: untuk mengambil data Formula 1
+- Pandas: untuk manipulasi data
+- Matplotlib: untuk membuat grafik statis
+- NumPy: mendukung perhitungan numerik
 
 Library tambahan bisa ditambahkan sesuai kebutuhan, misalnya Plotly atau ApexCharts jika ingin membuat visualisasi yang lebih interaktif.
 
 Cara Kerja FastF1 dalam Project
-
 FastF1 mengambil data melalui API F1 Live Timing dan menyediakannya dalam bentuk DataFrame. Ketika pengguna memilih musim dan sesi tertentu, loader akan:
-
 Mengaktifkan cache
-
 Memuat session
-
 Mengambil data lap, telemetry, atau informasi pembalap
-
 Mengirimkan data tersebut ke halaman HTML
-
 Menampilkan hasilnya dalam bentuk tabel atau grafik
 
 Karena FastF1 menyediakan dataset sangat lengkap, project ini bisa dikembangkan lebih jauh untuk analisis performa yang lebih mendalam.
 
-Pengembangan Lanjutan
-
-Jika project ini ingin dikembangkan lagi, beberapa fitur berikut bisa ditambahkan:
-
-Tema UI bergaya F1 (merah–hitam / dark theme)
-
-Grafik interaktif dengan Plotly
-
-Pemilihan Grand Prix & sesi melalui dropdown
-
-Analisis sektor time
-
-Perbandingan multi-driver
-
-Pit stop analysis
-
-Integrasi API untuk data real-time
-
 Penutup
-
 Project ini dibuat sebagai mini project EDA berbasis web untuk menganalisis data Formula 1 secara praktis. Dengan menggunakan FastF1, pengguna bisa mendapatkan insight dari data balapan dan telemetry tanpa harus mengolah data mentah secara manual.
 
 Jika ingin menambahkan fitur, mempercantik tampilan, atau melakukan deployment, project ini sudah cukup fleksibel untuk dikembangkan lebih jauh.
