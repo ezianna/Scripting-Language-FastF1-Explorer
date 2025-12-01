@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="hero">
+    <h1>FastF1 Explorer</h1>
+    <p>Explore Formula 1 data with advanced analytics</p>
+</div>
+
+<div class="features">
+    <div class="feature-card">
+        <h3>Race Overview</h3>
+        <p>View race results and standings</p>
+        <a href="/race" class="btn">View</a>
+    </div>
+
+    <div class="feature-card">
+        <h3>Lap Analysis</h3>
+        <p>Analyze individual driver lap times</p>
+        <a href="/lap" class="btn">View</a>
+    </div>
+
+    <div class="feature-card">
+        <h3>Telemetry</h3>
+        <p>Detailed telemetry data visualization</p>
+        <a href="/telemetry" class="btn">View</a>
+    </div>
+
+    <div class="feature-card">
+        <h3>Driver Comparison</h3>
+        <p>Compare telemetry between drivers</p>
+        <a href="/compare" class="btn">View</a>
+    </div>
+</div>
+
+{% endblock %}

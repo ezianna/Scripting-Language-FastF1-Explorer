@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Race Overview</h2>
+
+<form method="POST">
+    <div class="form-group">
+        <label>Year:</label>
+        <input type="number" name="year" placeholder="2023" required>
+    </div>
+
+    <div class="form-group">
+        <label>Grand Prix:</label>
+        <input type="text" name="gp" placeholder="Monza" required>
+    </div>
+
+    <div class="form-group">
+        <label>Session:</label>
+        <select name="session" required>
+            <option value="R">Race</option>
+            <option value="Q">Qualifying</option>
+            <option value="FP1">Free Practice 1</option>
+            <option value="FP2">Free Practice 2</option>
+            <option value="FP3">Free Practice 3</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn">Load Race Data</button>
+</form>
+
+{% if error %}
+<div style="background: #c70500; color: white; padding: 1rem; border-radius: 4px; margin-top: 2rem;">
+    <strong>Error:</strong> {{ error }}
+</div>
+{% endif %}
+
+{% if race_data is not none and race_data|length > 0 %}
+<div class="race-results">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Position</th>
+                <th>Driver</th>
+                <th>Team</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for idx, row in race_data.iterrows() %}
+            <tr>
+                <td>{{ row.get('Position', 'N/A') }}</td>
+                <td>{{ row.get('Driver', 'N/A') }}</td>
+                <td>{{ row.get('Team', 'N/A') }}</td>
+                <td>{{ row.get('Points', 'N/A') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<p style="color: #a0a0a0; margin-top: 2rem;">No race data available. Please submit the form above.</p>
+{% endif %}
+
+{% endblock %}
